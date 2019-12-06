@@ -1,0 +1,120 @@
+
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Asignaturas</title>
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		crossorigin="anonymous"></link>
+	<link rel="stylesheet" type="text/css" href="main.css" />
+</h:head>
+<h:body>
+	<!-- BANNER -->
+	<header>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">
+					<span class="glyphicon glyphicon-list-alt"></span>Agenda Académica
+				</h1>
+				<p class="lead">Administra tus vida académica de la mejor
+					manera.</p>
+			</div>
+		</div>
+	</header>
+	<!-- MENU -->
+	<p:tabMenu activeIndex="#{param.i}">
+		<p:menuitem value="Agenda" outcome="/index.xhtml" icon="pi pi-home">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Docentes" outcome="/indexdocente.xhtml"
+			icon="pi pi-user">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+		<p:menuitem value="Tareas" outcome="/indextareas.xhtml"
+			icon="pi pi-briefcase">
+			<f:param name="i" value="2" />
+		</p:menuitem>
+		<p:menuitem value="Asignaturas" outcome="/indexasignaturas.xhtml"
+			icon="pi pi-briefcase">
+			<f:param name="i" value="3" />
+		</p:menuitem>
+	</p:tabMenu>
+	<!--  -->
+	<div class="container">
+		<h2>
+			<h:outputText value="Lista de Asignaturas"></h:outputText>
+		</h2>
+		<h:form>
+			<h:dataTable value="#{asignaturaBean.arrayList}" var="asignatura"
+				border="1">
+				<p:column>
+					<f:facet name="header">NRC</f:facet>
+					<h:outputText value="#{asignatura.NRC_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Nombre Asignatura</f:facet>
+					<h:outputText value="#{asignatura.NOMBRE_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Aula o Salon</f:facet>
+					<h:outputText value="#{asignatura.AULA_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Hora Entrada</f:facet>
+					<h:outputText value="#{asignatura.HORAENTRADA_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Hora Salida</f:facet>
+					<h:outputText value="#{asignatura.HORASALIDA_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Dia</f:facet>
+					<h:outputText value="#{asignatura.DIAS_ASIGNATURA}"></h:outputText>
+				</p:column>
+				<!-- 
+				<p:column>
+					<f:facet name="header">Calificacion</f:facet>
+					<h:outputText value="#{asignatura.CALIFICACION_ASIGNATURA}"></h:outputText>
+				</p:column>
+				-->
+				<p:column>
+					<f:facet name="header">Editar</f:facet>
+					<p:commandButton
+						action="#{asignaturaBean.editar(asignatura.NRC_ASIGNATURA)}"
+						value="Editar"></p:commandButton>
+				</p:column>
+				<p:column>
+					<f:facet name="header">Eliminar</f:facet>
+					<p:commandButton action="#{asignaturaBean.eliminar(asignatura.NRC_ASIGNATURA)}"
+						value="Eliminar">
+						<p:confirm header="Confirmación" message="¿Estás seguro?"
+							icon="pi pi-exclamation-triangle" />
+					</p:commandButton>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Si" type="button"
+							styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+						<p:commandButton value="No" type="button"
+							styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+					</p:confirmDialog>
+				</p:column>
+			</h:dataTable>
+
+			<p:commandButton action="#{asignaturaBean.PaginaAdd()}"
+				value="Agregar"></p:commandButton>
+		</h:form>
+	</div>
+	<!-- SCRIPT -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</h:body>
+</html>

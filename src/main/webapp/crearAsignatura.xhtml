@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Crear Asigntura</title>
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		crossorigin="anonymous"></link>
+	<link rel="stylesheet" type="text/css" href="main.css" />
+</h:head>
+<h:body>
+	<!-- BANNER -->
+	<header>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">
+					<span class="glyphicon glyphicon-list-alt"></span>Agenda Académica
+				</h1>
+				<p class="lead">Administra tus vida académica de la mejor
+					manera.</p>
+			</div>
+		</div>
+	</header>
+	<!-- MENU -->
+	<p:tabMenu activeIndex="#{param.i}">
+		<p:menuitem value="Agenda" outcome="/index.xhtml" icon="pi pi-home">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		<p:menuitem value="Docentes" outcome="/indexdocente.xhtml"
+			icon="pi pi-user">
+			<f:param name="i" value="1" />
+		</p:menuitem>
+		<p:menuitem value="Tareas" outcome="/indextareas.xhtml"
+			icon="pi pi-briefcase">
+			<f:param name="i" value="2" />
+		</p:menuitem>
+		<p:menuitem value="Asignaturas" outcome="/indexasignaturas.xhtml"
+			icon="pi pi-briefcase">
+			<f:param name="i" value="3" />
+		</p:menuitem>
+	</p:tabMenu>
+	<!--  -->
+	<h:form>
+		<p:panelGrid columns="4" layout="tabular"
+			columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
+			contentStyleClass="p-align-baseline ui-fluid">
+			<!-- SCRIP CALENDARIO -->
+		
+			<font></font>
+			<p:outputLabel for="nombre" value="Nombre" />
+			<font></font>
+			<p:inputText id="nombre" value="#{asignatura.NOMBRE_ASIGNATURA}"></p:inputText>
+			<font></font>
+			<p:outputLabel for="aula" value="Aula" />
+			<font></font>
+			<p:inputText id="aula" value="#{asignatura.AULA_ASIGNATURA}"></p:inputText>
+			<font></font>
+			<p:outputLabel for="timeonly" value="Hora de entrada" />
+			<font></font>
+			<p:datePicker id="timeonly"
+				value="#{asignatura.HORAENTRADA_ASIGNATURA}" timeOnly="true"
+				pattern="HH:mm" timeZone="America/Guayaquil" />
+			<font></font>
+			<p:outputLabel for="timeonly1" value="Hora de Salida" />
+			<font></font>
+			<p:datePicker id="timeonly1"
+				value="#{asignatura.HORASALIDA_ASIGNATURA}" timeOnly="true"
+				pattern="HH:mm" timeZone="America/Guayaquil" />
+				<!-- 
+				<p:dialog modal="true" resizable="false" header="Values"
+				widgetVar="dlg" showEffect="fold">
+				<p:panelGrid id="display" columns="4"
+					columnClasses="label,value,label,value">
+				</p:panelGrid>
+			</p:dialog>
+			 -->
+			<font></font>
+			<p:outputLabel for="dia" value="Día" />
+			<font></font>
+			<p:datePicker id="dia" value="#{asignatura.DIAS_ASIGNATURA}"
+				showIcon="true" />
+			<font></font>
+			<p:commandButton action="#{asignaturaBean.guardar(asignatura)}"
+				value="Guardar"></p:commandButton>
+			<font></font>
+		</p:panelGrid>
+		<font></font>
+	</h:form>
+	<!-- SCRIPT BOOTSTRAP -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</h:body>
+</html>
