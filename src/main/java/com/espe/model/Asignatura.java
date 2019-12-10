@@ -42,10 +42,6 @@ public class Asignatura {
 	private Date DIAS_ASIGNATURA;
 	@Column
 	private String 	CALIFICACION_ASIGNATURA;
-	//@OneTnoMay - @ManyToOne
-	//@JoinColumn
-
-	
 	public Integer getNRC_ASIGNATURA() {
 		return NRC_ASIGNATURA;
 	}
