@@ -42,8 +42,11 @@ public class Asignatura {
 	private Date DIAS_ASIGNATURA;
 	@Column
 	private String 	CALIFICACION_ASIGNATURA;
+<<<<<<< HEAD
 	//@OneTnoMay - @ManyToOne
 	//@JoinColumn
+=======
+>>>>>>> branch 'master' of https://github.com/gemycz/Proyecto-Agenda-Academyca.git
 
 	
 	public Integer getNRC_ASIGNATURA() {
