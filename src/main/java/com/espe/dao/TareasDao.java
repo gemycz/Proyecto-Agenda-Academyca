@@ -6,10 +6,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 import com.espe.idao.ITareasDao;
 import com.espe.model.Tareas;
-import com.espe.model.JPAUtil;
 
+import com.espe.model.JPAUtil;
+import com.espe.model.HibernateUtil;
+
+import com.espe.model.Asignatura;
 public class TareasDao implements ITareasDao {
 
 	EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
@@ -60,5 +66,18 @@ public class TareasDao implements ITareasDao {
 		
 		return listaTareas;
 	}
+
+		
+	@Override
+    public List<Asignatura> obtenerAsignaturas() {
+		List<Asignatura> listaAsignatura = new ArrayList<Asignatura>();
+		Query q = entity.createQuery("SELECT a FROM Asignatura a");
+		listaAsignatura = q.getResultList();
+		//System.out.println(listaAsignatura);
+		return listaAsignatura;
+    }
+
+
+	 
 
 }

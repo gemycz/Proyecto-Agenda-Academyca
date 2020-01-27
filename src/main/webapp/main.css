@@ -1,8 +1,8 @@
 
 .jumbotron{
 	margin: 0;
-	background: #1370CC;
-	color: white;
+	background-image: url('img/wallpaper2.jpg');
+	color: black;
 }
 
 .button-edit{
@@ -14,3 +14,8 @@
 	padding-top: 20px;
 	margin-top: 30px; 
 }
+
+.menup{
+	margin-bottom:0;
+}
+

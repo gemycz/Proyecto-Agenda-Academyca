@@ -21,7 +21,7 @@ import com.espe.model.Estudiante;
 
 public class EstudianteController {
 	
-	private List<Estudiante> arrayList;
+	private List<Estudiante> estudiante = new ArrayList<Estudiante>();
 	
 	
 	public List<Estudiante> getArrayList() {
@@ -29,38 +29,35 @@ public class EstudianteController {
 		return estudiantedao.obtenerEstudiantes();
 	}
 
-	public void setArrayList(List<Estudiante> arrayList) {
-		this.arrayList = arrayList;
+	public void setArrayList(List<Estudiante> estudiante) {
+		this.estudiante = estudiante;
 	}
 
 	
 	
 	public List<Estudiante>obtenerEstudiantes(){
-		List<Estudiante> listaEstudiante = new ArrayList<Estudiante>();
 		EstudianteDao estudiantedao = new EstudianteDao();
 		return estudiantedao.obtenerEstudiantes();
 	}
-	
+	public String direccionAgre() {
+		Estudiante es = new Estudiante();
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		sessionMap.put("estudiante", es);
+		return  "/crearestudiante.jsf";
+	}
 	public String guardar(Estudiante estudiante) {
 		EstudianteDao estudianteDao = new EstudianteDao();
 		estudianteDao.guardar(estudiante);
-		return "index.xhtml";
+		return "/login.jsf";
 		
 	}
 	
-	public String agregar() {
-		Estudiante es = new Estudiante();
-		Map <String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
-		sessionMap.put("estudiante", es);
-		return "crear.xhtml";
-		
-	} 
 	public String eliminar(int id) {
 		EstudianteDao estudiantedao = new EstudianteDao();
 		estudiantedao.eliminar(id);
 		System.out.println("Estudiante Eliminado");
 		
-		return "index.xhtml";
+		return "/indexestudiante.jsf";
 		
 	}
 	public String editar(int id) {
@@ -71,14 +68,14 @@ public class EstudianteController {
 		
 		Map <String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
 		sessionMap.put("estudiante", es);
-		return "editar.xhtml";
+		return "/editarestudiante.jsf";
 		
 	}
 	
 	public String actualizar(Estudiante estudiante) {
 		EstudianteDao estudiantedao = new EstudianteDao();
 		estudiantedao.editar(estudiante);
-		return "index.xhtml";
+		return "indexestudiante.jsf";
 		
 	}
 	

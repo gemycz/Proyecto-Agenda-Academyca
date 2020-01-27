@@ -10,9 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="estudiante")
 public class Estudiante {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	private Integer ID_ESTUDIANTE;
 	@Column
 	private String 	CEDULA_ESTUDIANTE;
@@ -21,11 +21,14 @@ public class Estudiante {
 	@Column
 	private String 	APELLIDO_ESTUDIANTE;
 	@Column
-	private int 	NIVEL_ESTUDIANTE;
+	private String 	USUARIO_ESTUDIANTE;
 	@Column
-	private String USUARIO_ESTUDIANTE;
+	private int NIVEL_ESTUDIANTE;
 	@Column
-	private String 	CONTRASENA_ESTUDIANTE;
+	private String login;
+	@Column
+	private String password;
+	
 	
 	public Integer getID_ESTUDIANTE() {
 		return ID_ESTUDIANTE;
@@ -57,24 +60,36 @@ public class Estudiante {
 	public void setNIVEL_ESTUDIANTE(int NIVEL_ESTUDIANTE) {
 		this.NIVEL_ESTUDIANTE = NIVEL_ESTUDIANTE;
 	}
+	
 	public String getUSUARIO_ESTUDIANTE() {
 		return USUARIO_ESTUDIANTE;
 	}
-	public void setUSUARIO_ESTUDIANTE(String USUARIO_ESTUDIANTE) {
-		this.USUARIO_ESTUDIANTE = USUARIO_ESTUDIANTE;
+	public void setUSUARIO_ESTUDIANTE(String uSUARIO_ESTUDIANTE) {
+		USUARIO_ESTUDIANTE = uSUARIO_ESTUDIANTE;
 	}
-	public String getCONTRASENA_ESTUDIANTE() {
-		return CONTRASENA_ESTUDIANTE;
+	public String getLogin() {
+		return login;
 	}
-	public void setCONTRASENA_ESTUDIANTE(String CONTRASENA_ESTUDIANTE) {
-		this.CONTRASENA_ESTUDIANTE = CONTRASENA_ESTUDIANTE;
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+
 	@Override
 	public String toString() {
 		return "Estudiante [ID_ESTUDIANTE=" + ID_ESTUDIANTE + ", CEDULA_ESTUDIANTE=" + CEDULA_ESTUDIANTE
 				+ ", NOMBRE_ESTUDIANTE=" + NOMBRE_ESTUDIANTE + ", APELLIDO_ESTUDIANTE=" + APELLIDO_ESTUDIANTE
-				+ ", NIVEL_ESTUDIANTE=" + NIVEL_ESTUDIANTE + ", USUARIO_ESTUDIANTE=" + USUARIO_ESTUDIANTE
-				+ ", CONTRASENA_ESTUDIANTE=" + CONTRASENA_ESTUDIANTE + "]";
+				+ ", NIVEL_ESTUDIANTE=" + NIVEL_ESTUDIANTE + ", login=" + login
+				+ ", password=" + password +"]";
 	}
 	
 	

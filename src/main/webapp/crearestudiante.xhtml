@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- Compiled and minified CSS -->
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+	<link href="src/main/webapp/css/alertify.min.css" rel="stylesheet"
+		type="text/css" />
+	<link href="src/main/webapp/css/default.min.css" rel="stylesheet"
+		type="text/css" />
+	<title>Editar</title>
+	<script src="validacion.js"></script>
+	<style>
+.error {
+	border: solid 2px #FF0000;
+}
+</style>
+</h:head>
+<h:body>
+	<style>
+body {
+	background-image:
+		url(https://i.pinimg.com/originals/22/05/7b/22057b7c6324047e1ec8944060b399de.jpg);
+	background-size: cover;
+	color: #000;
+}
+
+.login {
+	margin-top: 100px;
+}
+
+.login label {
+	font-size: 16px;
+	color: #ccc;
+}
+
+.login input {
+	font-size: 22px !important;
+}
+</style>
+	<div class="row login">
+		<div class="col s4 offset-s4">
+			<div class="card">
+				<div class="card-action teal white-text">
+					<h4>Registro Estudiante</h4>
+				</div>
+				<h:form id="registro">
+					<font></font>
+						<font></font>
+						<p:messages>
+							<font></font>
+							<p:autoUpdate />
+							<font></font>
+						</p:messages>
+						<font></font>
+						<div class="card-content">
+
+							<div class="form-field">
+
+								<label>Nombre</label>
+								<p:inputText id="regex" value="#{estudiante.NOMBRE_ESTUDIANTE}"
+									validatorMessage="Value does not match pattern.">
+									<font></font>
+									<f:validateRegex pattern="^[a-zA-Z]+$" />
+									<font></font>
+								</p:inputText>
+								<font></font>
+								<p:message for="regex" />
+								<font></font>
+								<h:outputText value="#{validationView.regexText}" />
+							</div>
+							<br />
+
+							<div class="form-field">
+
+								<label>Apellido</label>
+								<h:inputText value="#{estudiante.APELLIDO_ESTUDIANTE}"
+									id="txtapellido"></h:inputText>
+
+							</div>
+							<br />
+							<div class="form-field">
+
+								<label>Cedula</label>
+
+								<h:inputText value="#{estudiante.CEDULA_ESTUDIANTE}"
+									required="true" requireMessage="Ingrese cedula" id="cedula">
+
+								</h:inputText>
+
+							</div>
+							<td><h:message for="cedula" style="color : red" /></td> <br />
+
+							<div class="form-field">
+
+								<label>Nivel Universitario</label>
+								<h:inputText id="txtNivel"
+									value="#{estudiante.NIVEL_ESTUDIANTE}" label="1 a 10">
+									<f:validateLongRange for="txtNivel" minimum="1" maximum="10"></f:validateLongRange>
+								</h:inputText>
+								<h:message for="txtNivel"></h:message>
+							</div>
+							<br />
+							<div class="form-field">
+
+								<label>Usuario</label>
+								<h:inputText value="#{estudiante.login}"></h:inputText>
+							</div>
+							<br />
+							<div class="form-field">
+
+								<label>Contraseña</label>
+								<p:password id="contraseña" value="#{estudiante.password}"
+									contraseña="true" />
+							</div>
+							<br />
+							<p id="mensajeError"></p>
+							<div class="from-field center-align">
+								<h:commandButton action="#{estudianteBean.guardar(estudiante)}"
+									styleClass="btn btn-large" value="guardar" id="guardar"></h:commandButton>
+
+							</div>
+							<p>
+								<input type="reset" value="Borrar" id="borrar" />
+							</p>
+						</div>
+				</h:form>
+
+			</div>
+		</div>
+	</div>
+
+</h:body>
+</html>

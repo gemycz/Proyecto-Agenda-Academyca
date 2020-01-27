@@ -45,12 +45,12 @@ public class LoginBean {
 		try {
 			UserEntityManager userResultSetObj = (UserEntityManager) queryObj.getSingleResult();				
 			if ((userResultSetObj != null) && (userName.equalsIgnoreCase(userResultSetObj.getLogin()) && password.equals(userResultSetObj.getPassword()))) {
-				validationResult ="indextareas.xhtml";
+				validationResult ="index.xhtml";
 				
 			} 
 		} catch(Exception exObj) {
 			validationResult = "login";
-			FacesContext.getCurrentInstance().addMessage("loginForm:loginName", new FacesMessage("Username Or Password Is Incorrect"));			
+			FacesContext.getCurrentInstance().addMessage("loginForm:loginName", new FacesMessage("Usuario o Contraseña es Incorrecta"));			
 		}
 		return validationResult;
 	}

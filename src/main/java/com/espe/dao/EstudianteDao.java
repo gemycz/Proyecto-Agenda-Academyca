@@ -45,6 +45,7 @@ public class EstudianteDao implements IEstudianteDao{
 		Estudiante es = new Estudiante();
 		es = entity.find(Estudiante.class, id);
 		
+		
 		return es;
 	}
 
@@ -52,13 +53,11 @@ public class EstudianteDao implements IEstudianteDao{
 	public List<Estudiante>obtenerEstudiantes(){
 		// TODO Auto-generated method stub
 		List<Estudiante> listaEstudiante = new ArrayList<Estudiante>();
-		Query q = entity.createQuery("SELECT es FROM Estudiante es");
-		listaEstudiante = q.getResultList();
+		Query q = entity.createQuery("SELECT es FROM Estudiante es ");
+		listaEstudiante = q.getResultList(); 
 		
 		return listaEstudiante;
 	}
-
-
 
 }
 

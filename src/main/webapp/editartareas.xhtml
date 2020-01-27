@@ -1,36 +1,43 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
-		<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<title>Actualizar Tareas</title>
-	<!-- BOOTSTRAP -->
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-		crossorigin="anonymous"></link>
+	<title>Editar Tareas</title>
 	<link rel="stylesheet" type="text/css" href="main.css" />
 </h:head>
 <h:body>
 	<!-- BANNER -->
 	<header>
-		<div class="jumbotron jumbotron-fluid">
+		<!-- MENU PRINCIPAL -->
+	<b:navBar class="menup" brandHref="#"
+			inverse="true"
+			style="padding-top:2px;padding-bottom:2px;margin-bottom:0px;background:#226BCB;color:white;
+			border-color:#226BCB;" fixed="top"><img src="img/studaylogo2.png" width="120"/>
+			<b:navbarLinks pull="right">
+				<b:navLink value="    " href="#"></b:navLink>
+			</b:navbarLinks>
+			<b:navbarLinks pull="right" styleClass="hidden-xs">
+				<b:dropMenu value="Usuario">
+					<b:navLink value="Cerrar Sesión" href="login.jsf"></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+		</b:navBar>
+		<!--  -->
+		<b:jumbotron class="jumbotron"
+			style="padding-top:60px;padding-bottom:20px;background-image: url('img/wallpaper6.jpg');background-repeat: no-repeat;background-size: cover;">
 			<div class="container">
-				<h1 class="display-4">
-					<span class="glyphicon glyphicon-list-alt"></span>Agenda Académica
-				</h1>
-				<p class="lead">Administra tus vida académica de la mejor
-					manera.</p>
+				<h1>Tareas</h1>
+				<p>Administra tu vida académica de la mejor manera.</p>
+				<p>
+					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+				</p>
 			</div>
-		</div>
+		</b:jumbotron>
 	</header>
 	<!-- MENU -->
 	<p:tabMenu activeIndex="#{param.i}">
@@ -50,52 +57,109 @@
 			<f:param name="i" value="3" />
 		</p:menuitem>
 	</p:tabMenu>
-	<!--  -->
-	<h:form>
-		<p:panelGrid columns="4" layout="tabular"
-			columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
-			contentStyleClass="p-align-baseline ui-fluid">
-			<font></font>
-			<!-- 
-			<p:outputLabel value="NRC:" />
-			<font></font>
-			<p:inputText value="#{tareas.NRC_ASIGNATURA}"></p:inputText>
-			 -->
-			<font></font>
-			<p:outputLabel value="Descripción:" />
-			<font></font>
-			<p:inputText value="#{tareas.DESCRIPCION_TAREA}"></p:inputText>
-			<font></font>
-			<p:outputLabel for="button" value="Fecha de Entrega:" />
-			<font></font>
-			<p:datePicker id="button" value="#{tareas.FECHA_ENTREGA}"
-				showIcon="true" />
-			<font></font>
-			<p:outputLabel value="Prioridad:" />
-			<font></font>
-			<!-- <p:inputText value="#{tareas.PRIORIDAD_TAREA}"></p:inputText> -->
-			<!--  -->
-			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-				<p:selectOneRadio id="console" value="#{tareas.PRIORIDAD_TAREA}"
-					unselectable="true">
-					<f:selectItem itemLabel="Alta" itemValue="Alta" />
-					<f:selectItem itemLabel="Media" itemValue="Media" />
-					<f:selectItem itemLabel=" Baja" itemValue="Baja" />
-				</p:selectOneRadio>
-			</h:panelGrid>
-			<!--  -->
-			<font></font>
-			<p:commandButton action="#{tareasBean.actualizar(tareas)}"
-				value="Actualizar" styleClass="ui-priority-primary"
-				style="margin-right:20px;"></p:commandButton>
-			<font></font>
-		</p:panelGrid>
-		<font></font>
-	</h:form>
-	<!-- SCRIPT BOOTSTRAP -->
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
+	<!-- FORM -->
+	<b:panel>
+		<f:facet name="heading">
+
+
+		</f:facet>
+
+		<b:form>
+			<b:container layout="fluid">
+				<b:panelGrid colSpans="6,6">
+					<b:panel title="EDITAR TAREAS"  look="info"
+						showCollapseLink="true">
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Asignatura" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:formGroup>
+									<b:selectOneMenu value="#{tareas.NRC_ASIGNATURA}">
+										<f:selectItem itemLabel="Seleccionar Asignatura" itemValue=""
+											noSelectionOption="true" />
+										<f:selectItems value="#{tareasBean.arrayList1}" />
+									</b:selectOneMenu>
+								</b:formGroup>
+							</b:column>
+
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Descripción" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:inputText value="#{tareas.DESCRIPCION_TAREA}" required="true"></b:inputText>
+							</b:column>
+
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Fecha de Entrega" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:datepicker value="#{tareas.FECHA_ENTREGA}"
+									tooltip="Clic en el icono para insertar la fecha!!"
+									severity="info" visible="md..." />
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Prioridad" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:panelGrid columns="3" style="margin-bottom:10px"
+									cellpadding="5">
+
+									<b:radiobutton id="console" value="#{tareas.PRIORIDAD_TAREA}"
+										unselectable="true">
+										<f:selectItem itemLabel="Alta" itemValue="Alta" />
+										<f:selectItem itemLabel="Media" itemValue="Media" />
+										<f:selectItem itemLabel=" Baja" itemValue="Baja" />
+									</b:radiobutton>
+								</b:panelGrid>
+							</b:column>
+						</b:row>
+
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Estado" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:formGroup>
+									<b:selectOneMenu value="#{tareas.ESTADO_TAREA}">
+										<f:selectItem itemLabel="Seleccionar Estado" itemValue=""
+											noSelectionOption="true" />
+										<f:selectItems value="#{tareasBean.listEstado}" />
+									</b:selectOneMenu>
+								</b:formGroup>
+							</b:column>
+						</b:row>
+
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Calificación" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:inputText value="#{tareas.CALIFICACIONES_TAREA}"
+									mask="decimal" render-label="true"></b:inputText>
+							</b:column>
+						</b:row>
+						<!--  -->
+						<b:commandButton action="#{tareasBean.actualizar(tareas)}"
+							value="Actualizar" styleClass="ui-priority-primary" ajax="true"
+							update="@none" look="success" iconAwesome="fa-check">
+						</b:commandButton>
+					</b:panel>
+				</b:panelGrid>
+			</b:container>
+		</b:form>
+
+	</b:panel>
+<footer class="sticky-bottom" style="background: #000;">
+		<p class="text-light text-center" style="color:white;padding-top:40px;padding-bottom:40px;">(c) 2019 StuDay Agenda. Todos
+			los derechos reservados.</p>
+	</footer>
+
 </h:body>
 </html>

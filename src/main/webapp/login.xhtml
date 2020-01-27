@@ -4,64 +4,92 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	 <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-       
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <title>Login</title>
 </h:head>
-<h:body >
-<style>
-	body{
-	background-image: url(https://i.pinimg.com/originals/22/05/7b/22057b7c6324047e1ec8944060b399de.jpg);	
+<h:body>
+	<style>
+body {
+	background-image:
+		url(https://i.pinimg.com/originals/22/05/7b/22057b7c6324047e1ec8944060b399de.jpg);
 	background-size: cover;
-	color:#fff;
-	}		
-    .login{
-    	margin-top: 100px;
-    }
-    .login .card{
-        background: rgba(0,0,0, .6);
-    }
-    .login label{
-    font-size: 16px;
-    color:#ccc;
-    }
-    .login input{
-    	font-size: 22px !important;
-    }
+	color: #fff;
+}
+
+.login {
+	margin-top: 100px;
+}
+
+.login .card {
+	background: rgba(0, 0, 0, .6);
+}
+
+.login label {
+	font-size: 16px;
+	color: #ccc;
+}
+
+.login input {
+	font-size: 22px !important;
+}
 </style>
 
-	  <div class="row login">
-		<div class="col s6 offset-s3">
+	<div class="row login" id="login-page">
+		<div class="col s4 offset-s4">
 			<div class="card">
 				<div class="card-action teal white-text">
-					<h3>Login</h3>
+					<center><h5>Login</h5>
+					 <img class="responsive-img" src="https://images.vexels.com/media/users/3/135249/isolated/preview/1b3e2006c49d0a6847f81576d74f5088-icono-de-usuario-de-siluetas-planas-by-vexels.png" style="max-width: 200px;" />
+					</center>
 				</div>
 				<h:form>
-				<div class="card-content">
-					<div class="form-field">
+                   <p:growl autoUpdate="true" />
+					<div class="card-content">
+						<div class="form-field">
+
+							<label for="username">Usuario</label>
+							<h:inputText id="loginName" value="#{loginBean.userName}"
+								required="true" requiredMessage="Ingrese Usuario" />
+						</div>
+						<br />
+						<div class="form-field">
+							<label for="password">Password</label>
+							<h:inputSecret id="loginPassword" required="true"
+								value="#{loginBean.password}"
+								requiredMessage="Ingrese constraseña!" />
+						</div>
+						<br />
+						<div class="from-field center-align">
+							<h:commandLink value="Ingresar" styleClass="btn btn-large"
+								action="#{loginBean.validateLoginCredentials}" />
+						</div>
+
+					</div>
+					</h:form>
+					<h:form>
+					<h:dataTable value="#{estudianteBean.arrayList}" var="estudiante"
+						border="1">
+					</h:dataTable>
 					
-						<label for="username">Usuario</label>
-						<h:inputText id="loginName" value="#{loginBean.userName}"
-							required="true" requiredMessage="Username required" />
-					</div>
-					<br />
-					<div class="form-field">
-						<label for="password">Password</label>
-						<h:inputSecret id="loginPassword" required="true"
-							value="#{loginBean.password}"
-							requiredMessage="Password required!" />
-					</div>
-					<br />
-					<div class="from-field center-align">
-						<h:commandLink value="Ingresar" styleClass="btn btn-large"
-							action="#{loginBean.validateLoginCredentials}" />
-					</div>
-				</div>
+					    <div class="from-field black center-align">
+							<h:commandLink value="Registrarse" tyleClass="btn btn-large"
+								 action="#{estudianteBean.direccionAgre()}" />
+						</div>
 				</h:form>
+
 			</div>
 		</div>
 	</div>
-
+<script>
+            $(document).on("ready",function(){
+                $('#login-page').css({'height': window.innerHeight + 'px'});
+            });
+        </script>
 </h:body>
 </html>
 

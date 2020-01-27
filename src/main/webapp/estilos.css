@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+header{
+  background-image: url('img/wallpaper3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#navbar{
+  background: #226BCB;
+}
+
+#banner {
+  height: 750px;
+}
+
+#titulop{
+  color:  #226BCB;
+}
+
+#btn-banner {
+  background: #226BCB;
+  color: #fff;
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#btn-banner:hover{
+  background: #fff;
+  color: #226BCB;
+}
+
+#banner-contain {
+  position: relative;
+  margin-top: 250px;
+}
+
+#nosotros-div {
+  height: 400px;
+}
+
+#nosotros-title {
+  margin-top: 120px;
+}
+
+#nosotros-text {
+  margin-top: 120px;
+}
+
+#imagen1 {
+  height: 450px;
+  background-image:url(../img/studio.jpg);
+  background-size: cover;;
+}
+
+.artista1 {
+  border: 2px solid #f1f1f1;
+  border-radius: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.artista2 {
+  border: 2px solid #f1f1f1;
+  border-radius: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.artista3 {
+  border: 2px solid #f1f1f1;
+  border-radius: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.btn-musica {
+  background: #000;
+  color: #fff;
+}
+
+#imagen2 {
+  width: 200px
+  height: 200px;
+  background-image:url(../img/studio.jpg);
+  background-size: cover;
+  position: static;
+}
+
+#imagen3 {
+  width: 200px
+  height: 200px;
+  background-image:url(../img/theglitchr2.jpg);
+  background-size: cover;
+  position: static;
+}
+
+.title1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #f1f1f1;
+  color: #000;
+}
+
+.title2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+#app{
+  background: url('img/wallpaper2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #555;
+  color: #fff;
+}
+
+#servicios{
+  background: #4D8ADA;
+  color: white;
+}

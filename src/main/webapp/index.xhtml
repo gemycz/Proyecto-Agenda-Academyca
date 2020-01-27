@@ -3,32 +3,46 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
 
-	<title>Plantilla Básica JSF</title>
-	<!-- BOOTSTRAP -->
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-		crossorigin="anonymous"></link>
+	<title>Agenda Académica</title>
+
 	<link rel="stylesheet" type="text/css" href="main.css" />
 </h:head>
 <h:body>
 	<!-- BANNER -->
 	<header>
-		<div class="jumbotron jumbotron-fluid">
+		<!-- MENU PRINCIPAL -->
+		<b:navBar class="menup" brandHref="#" inverse="true"
+			style="padding-top:2px;padding-bottom:2px;margin-bottom:0px;background:#226BCB;color:white;
+			border-color:#226BCB;"
+			fixed="top">
+			<img src="img/studaylogo2.png" width="120" />
+			<b:navbarLinks pull="right">
+				<b:navLink value="    " href="#"></b:navLink>
+			</b:navbarLinks>
+			<b:navbarLinks pull="right" styleClass="hidden-xs">
+				<b:dropMenu value="Usuario">
+					<b:navLink value="Cerrar Sesión" href="login.jsf"></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+		</b:navBar>
+		<!--  -->
+		<b:jumbotron class="jumbotron"
+			style="padding-top:60px;padding-bottom:20px;background-image: url('img/wallpaper4.jpg')
+			;background-position: center;background-repeat: no-repeat;background-size: cover;">
 			<div class="container">
-				<h1 class="display-4">
-					<span class="glyphicon glyphicon-list-alt"></span>Agenda Académica
-				</h1>
-				<p class="lead">Administra tus vida académica de la mejor
-					manera.</p>
+				<h1>Agenda</h1>
+				<p>Administra tu vida académica de la mejor manera.</p>
+				<p>
+					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+				</p>
 			</div>
-		</div>
+		</b:jumbotron>
 	</header>
 	<!-- MENU -->
 	<p:tabMenu activeIndex="#{param.i}">
@@ -49,55 +63,90 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<!-- AGENDA -->
-	<script type="text/javascript">
-    function handleDrop(event, ui) {
-        var droppedCar = ui.draggable;
- 
-        droppedCar.fadeOut('fast');
-    }
-</script>
-	<div class="container">
-		<div class="AsignaturasOP">
-			<p:fieldset id="Asignaturas" legend="Asignaturas">
-				<p:dataTable id="Asignaturas" var="asig"
-					value="#{asignaturaBean.arrayList}">
-					<p:column style="width:20px">
-						<h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" />
-						<p:draggable for="dragIcon" revert="true" helper="clone" />
-					</p:column>
+	<!-- LUNES -->
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}">
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="LUNES" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+		<!--  -->
+		
+		<!--  -->
+	</b:panel>
+	<!-- MARTES -->
 
-					<p:column>
-					<f:facet name="header">NRC</f:facet>
-					<h:outputText value="#{asignatura.NRC_ASIGNATURA}"></h:outputText>
-				</p:column>
-				<p:column>
-					<f:facet name="header">Nombre Asignatura</f:facet>
-					<h:outputText value="#{asignatura.NOMBRE_ASIGNATURA}"></h:outputText>
-				</p:column>
-				<p:column>
-					<f:facet name="header">Aula o Salon</f:facet>
-					<h:outputText value="#{asignatura.AULA_ASIGNATURA}"></h:outputText>
-				</p:column>
-				<p:column>
-					<f:facet name="header">Hora Entrada</f:facet>
-					<h:outputText value="#{asignatura.HORAENTRADA_ASIGNATURA}"></h:outputText>
-				</p:column>
-				<p:column>
-					<f:facet name="header">Hora Salida</f:facet>
-					<h:outputText value="#{asignatura.HORASALIDA_ASIGNATURA}"></h:outputText>
-				</p:column>
-				<p:column>
-					<f:facet name="header">Dia</f:facet>
-					<h:outputText value="#{asignatura.DIAS_ASIGNATURA}"></h:outputText>
-				</p:column>
-				</p:dataTable>
-			</p:fieldset>
-		</div>
-	</div>
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="MARTES" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
+	<!-- MIERCOLES -->
+
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="MIERCOLES" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
+	<!-- JUEVES -->
+
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="JUEVES" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
+	<!-- VIERNES -->
+
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="VIERNES" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
+	<!-- SABADO -->
+
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="SABADO" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
+	<!-- DOMINGO -->
+
+	<b:panel>
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="DOMINGO" />
+			<b:badge style="margin-left:10px; background-color:#5cb85c"
+				value="good" />
+		</f:facet>
+		<h:outputText value="Panel Content" />
+	</b:panel>
 	<!--  -->
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
+	<footer class="sticky-bottom" style="background: #000;">
+		<p class="text-light text-center"
+			style="color: white; padding-top: 40px; padding-bottom: 40px;">(c)
+			2019 StuDay Agenda. Todos los derechos reservados.</p>
+	</footer>
 </h:body>
 </html>

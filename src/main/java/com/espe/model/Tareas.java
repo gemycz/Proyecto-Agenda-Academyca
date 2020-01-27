@@ -4,14 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="tareas")
-public class Tareas {
+public class Tareas implements java.io.Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,13 +27,18 @@ public class Tareas {
 	@Column
 	private Date FECHA_ENTREGA;
 	@Column
-	private boolean ESTADO_TAREA;
+	private String ESTADO_TAREA;
 	@Column
 	private String PRIORIDAD_TAREA;
 	@Column
-	private String CALIFICACIONES_TAREA;
+	private Double CALIFICACIONES_TAREA;
 	@Column
 	private String DESCRIPCION_TAREA;
+	
+	/*@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "NRC_ASIGNATURA")
+	private Asignatura asignatura;
+	*/
 	
 	
 	public Integer getID_TAREA() {
@@ -62,10 +71,11 @@ public class Tareas {
 	public void setFECHA_ENTREGA(Date fECHA_ENTREGA) {
 		FECHA_ENTREGA = fECHA_ENTREGA;
 	}
-	public boolean isESTADO_TAREA() {
+	
+	public String getESTADO_TAREA() {
 		return ESTADO_TAREA;
 	}
-	public void setESTADO_TAREA(boolean eSTADO_TAREA) {
+	public void setESTADO_TAREA(String eSTADO_TAREA) {
 		ESTADO_TAREA = eSTADO_TAREA;
 	}
 	public String getPRIORIDAD_TAREA() {
@@ -74,10 +84,11 @@ public class Tareas {
 	public void setPRIORIDAD_TAREA(String pRIORIDAD_TAREA) {
 		PRIORIDAD_TAREA = pRIORIDAD_TAREA;
 	}
-	public String getCALIFICACIONES_TAREA() {
+	
+	public Double getCALIFICACIONES_TAREA() {
 		return CALIFICACIONES_TAREA;
 	}
-	public void setCALIFICACIONES_TAREA(String cALIFICACIONES_TAREA) {
+	public void setCALIFICACIONES_TAREA(Double cALIFICACIONES_TAREA) {
 		CALIFICACIONES_TAREA = cALIFICACIONES_TAREA;
 	}
 	@Override

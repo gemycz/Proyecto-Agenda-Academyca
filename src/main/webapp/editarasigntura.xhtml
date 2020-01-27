@@ -1,36 +1,43 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
-		<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<title>Editar Asigntura</title>
-	<!-- BOOTSTRAP -->
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-		crossorigin="anonymous"></link>
+	<title>Editar Asignatura</title>
 	<link rel="stylesheet" type="text/css" href="main.css" />
 </h:head>
 <h:body>
 	<!-- BANNER -->
 	<header>
-		<div class="jumbotron jumbotron-fluid">
+		<!-- MENU PRINCIPAL -->
+		<b:navBar class="menup" brandHref="#"
+			inverse="true"
+			style="padding-top:2px;padding-bottom:2px;margin-bottom:0px;background:#226BCB;color:white;
+			border-color:#226BCB;" fixed="top"><img src="img/studaylogo2.png" width="120"/>
+			<b:navbarLinks pull="right">
+				<b:navLink value="    " href="#"></b:navLink>
+			</b:navbarLinks>
+			<b:navbarLinks pull="right" styleClass="hidden-xs">
+				<b:dropMenu value="Usuario">
+					<b:navLink value="Cerrar Sesión" href="login.jsf"></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+		</b:navBar>
+		<!--  -->
+		<b:jumbotron class="jumbotron"
+			style="padding-top:60px;padding-bottom:20px;background-image: url('img/wallpaper7.jpg');background-repeat: no-repeat;background-size: cover;">
 			<div class="container">
-				<h1 class="display-4">
-					<span class="glyphicon glyphicon-list-alt"></span>Agenda Académica
-				</h1>
-				<p class="lead">Administra tus vida académica de la mejor
-					manera.</p>
+				<h1>Asignatura</h1>
+				<p>Administra tu vida académica de la mejor manera.</p>
+				<p>
+					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+				</p>
 			</div>
-		</div>
+		</b:jumbotron>
 	</header>
 	<!-- MENU -->
 	<p:tabMenu activeIndex="#{param.i}">
@@ -50,57 +57,98 @@
 			<f:param name="i" value="3" />
 		</p:menuitem>
 	</p:tabMenu>
-	<!--  -->
-	<h:form>
-		<p:panelGrid columns="4" layout="tabular"
-			columnClasses="p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4, p-col-12 p-md-3 p-xl-2, p-col-12 p-md-9 p-xl-4"
-			contentStyleClass="p-align-baseline ui-fluid">
-			<!-- SCRIP CALENDARIO -->
-		
-			<font></font>
-			<p:outputLabel for="nombre" value="Nombre" />
-			<font></font>
-			<p:inputText id="nombre" value="#{asignatura.NOMBRE_ASIGNATURA}"></p:inputText>
-			<font></font>
-			<p:outputLabel for="aula" value="Aula" />
-			<font></font>
-			<p:inputText id="aula" value="#{asignatura.AULA_ASIGNATURA}"></p:inputText>
-			<font></font>
-			<p:outputLabel for="timeonly" value="Hora de entrada" />
-			<font></font>
-			<p:datePicker id="timeonly"
-				value="#{asignatura.HORAENTRADA_ASIGNATURA}" timeOnly="true"
-				pattern="HH:mm" timeZone="America/Guayaquil" />
-			<font></font>
-			<p:outputLabel for="timeonly1" value="Hora de Salida" />
-			<font></font>
-			<p:datePicker id="timeonly1"
-				value="#{asignatura.HORASALIDA_ASIGNATURA}" timeOnly="true"
-				pattern="HH:mm" timeZone="America/Guayaquil" />
-				<!-- 
-				<p:dialog modal="true" resizable="false" header="Values"
-				widgetVar="dlg" showEffect="fold">
-				<p:panelGrid id="display" columns="4"
-					columnClasses="label,value,label,value">
-				</p:panelGrid>
-			</p:dialog>
-			 -->
-			<font></font>
-			<p:outputLabel for="dia" value="Día" />
-			<font></font>
-			<p:datePicker id="dia" value="#{asignatura.DIAS_ASIGNATURA}"
-				showIcon="true" />
-			<font></font>
-			<p:commandButton action="#{asignaturaBean.actualizar(asignatura)}"
-				value="Actualizar"></p:commandButton>
-			<font></font>
-		</p:panelGrid>
-		<font></font>
-	</h:form>
-	<!-- SCRIPT BOOTSTRAP -->
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
+	<!-- FORM -->
+	<b:panel>
+		<f:facet name="heading">
+
+		</f:facet>
+		<b:form>
+			<b:container layout="fluid">
+				<b:panelGrid colSpans="6,6">
+					<b:panel title="ACTUALIZAR ASIGNATURA" look="primary">
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Nombre" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:inputText id="nombre" value="#{asignatura.NOMBRE_ASIGNATURA}"
+									required="true"></b:inputText>
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Dia" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:selectOneMenu value="#{asignatura.DIAS_ASIGNATURA}">
+									<f:selectItem itemLabel="Seleccionar Dia" />
+									<f:selectItems value="#{asignaturaBean.listaDias}" />
+									<!-- <f:selectItem itemValue="Dia1" itemLabel="Lunes"/>
+									<f:selectItem itemValue="Dia2" itemLabel="Martes"/>
+									<f:selectItem itemValue="Dia3" itemLabel="Miércoles"/>
+									<f:selectItem itemValue="Dia4" itemLabel="Jueves"/>
+									<f:selectItem itemValue="Dia5" itemLabel="Viernes"/>
+									<f:selectItem itemValue="Dia6" itemLabel="Sábado"/>
+									<f:selectItem itemValue="Dia7" itemLabel="Domingo"/>
+									-->
+								</b:selectOneMenu>
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Hora de entrada" />
+							</b:column>
+							<b:column medium-screen="8">
+
+								<p:calendar id="time" pattern="HH:mm a" timeOnly="true"
+									value="#{asignatura.HORAENTRADA_ASIGNATURA}" />
+								<f:convertDateTime pattern="HH:mm a" />
+							</b:column>
+						</b:row>
+						<h4></h4>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Hora de salida" />
+							</b:column>
+							<b:column medium-screen="8">
+								<p:calendar id="time1" pattern="HH:mm a" timeOnly="true"
+									value="#{asignatura.HORASALIDA_ASIGNATURA}" style="width:200px" />
+								<f:convertDateTime pattern="HH:mm a" />
+							</b:column>
+						</b:row>
+						<h4></h4>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Docente" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:selectOneMenu value="#{asignatura.ID_DOCENTE}">
+
+									<f:selectItem itemLabel="Seleccionar Docente" itemValue=""
+										noSelectionOption="true" />
+									<f:selectItems value="#{asignaturaBean.listDocente}" />
+								</b:selectOneMenu>
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column medium-screen="4">
+								<p:outputLabel value="Aula" />
+							</b:column>
+							<b:column medium-screen="8">
+								<b:inputText id="aula" value="#{asignatura.AULA_ASIGNATURA}"></b:inputText>
+							</b:column>
+						</b:row>
+						<b:commandButton action="#{asignaturaBean.actualizar(asignatura)}"
+							value="Actualizar" ajax="true" update="@none" look="success"
+							iconAwesome="fa-check"></b:commandButton>
+					</b:panel>
+				</b:panelGrid>
+			</b:container>
+		</b:form>
+	</b:panel>
+	<footer class="sticky-bottom" style="background: #000;">
+		<p class="text-light text-center" style="color:white;padding-top:40px;padding-bottom:40px;">(c) 2019 StuDay Agenda. Todos
+			los derechos reservados.</p>
+	</footer>
 </h:body>
 </html>

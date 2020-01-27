@@ -7,21 +7,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="login")
+@Table(name="estudiante")
 public class UserEntityManager {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int ID_ESTUDIANTE;
 	private String login;
 	private String password;
 
 	public int getId() {
-		return id;
+		return ID_ESTUDIANTE;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.ID_ESTUDIANTE = id;
 	}
 
 	public String getLogin() {
