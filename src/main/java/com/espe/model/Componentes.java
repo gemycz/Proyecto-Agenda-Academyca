@@ -10,9 +10,8 @@ public class Componentes {
 
 	private String dia;
 
-	List <String> listaDias;
-	
-	
+	List<String> listaDias;
+
 	public Componentes() {
 		listaDias = new ArrayList<>();
 		listaDias.add("Lunes");
@@ -22,10 +21,9 @@ public class Componentes {
 		listaDias.add("Viernes");
 		listaDias.add("Sabado");
 		listaDias.add("Domingo");
-		
 
 	}
-	
+
 	public List<String> getListaDias() {
 		return listaDias;
 	}
@@ -33,8 +31,6 @@ public class Componentes {
 	public void setListaDias(List<String> listaDias) {
 		this.listaDias = listaDias;
 	}
-
-	
 
 	public String diaSeleccionado() {
 		String seleccion = "";

@@ -16,8 +16,10 @@
 	<style>
 body {
 	background-image:
-		url(https://i.pinimg.com/originals/22/05/7b/22057b7c6324047e1ec8944060b399de.jpg);
+		url(img/wallpaper.png);
 	background-size: cover;
+	background-position: center;
+  background-repeat: no-repeat;
 	color: #fff;
 }
 
@@ -42,9 +44,9 @@ body {
 	<div class="row login" id="login-page">
 		<div class="col s4 offset-s4">
 			<div class="card">
-				<div class="card-action teal white-text">
+				<div class="card-action teal blue-text grey lighten-5">
 					<center><h5>Login</h5>
-					 <img class="responsive-img" src="https://images.vexels.com/media/users/3/135249/isolated/preview/1b3e2006c49d0a6847f81576d74f5088-icono-de-usuario-de-siluetas-planas-by-vexels.png" style="max-width: 200px;" />
+					 <img class="responsive-img" src="img/studaylogo1.png" style="max-width: 250px;" />
 					</center>
 				</div>
 				<h:form>
@@ -65,7 +67,7 @@ body {
 						</div>
 						<br />
 						<div class="from-field center-align">
-							<h:commandLink value="Ingresar" styleClass="btn btn-large"
+							<h:commandLink value="Ingresar" styleClass="btn btn-large blue darken-4"
 								action="#{loginBean.validateLoginCredentials}" />
 						</div>
 
@@ -76,8 +78,8 @@ body {
 						border="1">
 					</h:dataTable>
 					
-					    <div class="from-field black center-align">
-							<h:commandLink value="Registrarse" tyleClass="btn btn-large"
+					    <div class="from-field white center-align" style="padding-top:15px;padding-bottom:15px;">
+							<h:commandLink value="Registrarse" tyleClass="btn btn-large blue darken-4"
 								 action="#{estudianteBean.direccionAgre()}" />
 						</div>
 				</h:form>
@@ -85,6 +87,33 @@ body {
 			</div>
 		</div>
 	</div>
+	<style>
+De acuerdo con Materialise Docs, puede usar:
+
+ /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+}
+/* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+Retazo
+/*** !important was needed for snippet ***/
+
+
+
+/* label focus color */
+ .input-field input:focus + label {
+   color: red !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid red !important;
+   box-shadow: 0 1px 0 0 red !important
+ }
+</style>
 <script>
             $(document).on("ready",function(){
                 $('#login-page').css({'height': window.innerHeight + 'px'});
@@ -92,4 +121,5 @@ body {
         </script>
 </h:body>
 </html>
+
 

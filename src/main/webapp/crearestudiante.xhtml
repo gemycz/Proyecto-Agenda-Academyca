@@ -14,7 +14,7 @@
 		type="text/css" />
 	<link href="src/main/webapp/css/default.min.css" rel="stylesheet"
 		type="text/css" />
-	<title>Editar</title>
+	<title>Registro</title>
 	<script src="validacion.js"></script>
 	<style>
 .error {
@@ -25,8 +25,7 @@
 <h:body>
 	<style>
 body {
-	background-image:
-		url(https://i.pinimg.com/originals/22/05/7b/22057b7c6324047e1ec8944060b399de.jpg);
+	background-image: url(img/wallpaper.png);
 	background-size: cover;
 	color: #000;
 }
@@ -47,7 +46,7 @@ body {
 	<div class="row login">
 		<div class="col s4 offset-s4">
 			<div class="card">
-				<div class="card-action teal white-text">
+				<div class="card-action white-text light-blue darken-4">
 					<h4>Registro Estudiante</h4>
 				</div>
 				<h:form id="registro">
@@ -123,12 +122,12 @@ body {
 							<p id="mensajeError"></p>
 							<div class="from-field center-align">
 								<h:commandButton action="#{estudianteBean.guardar(estudiante)}"
-									styleClass="btn btn-large" value="guardar" id="guardar"></h:commandButton>
+									styleClass="btn btn-small light-blue darken-4" value="guardar" id="guardar"></h:commandButton>
 
 							</div>
-							<p>
-								<input type="reset" value="Borrar" id="borrar" />
-							</p>
+						</div>
+						<div class="from-field white center-align" style="padding-top:15px;padding-bottom:15px;">
+							<input type="reset" value="Borrar" id="borrar" class="btn red darken-3" />
 						</div>
 				</h:form>
 

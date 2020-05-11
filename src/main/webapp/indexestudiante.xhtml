@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:h="http://java.sun.com/jsf/html" 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">	
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />    
-    <title>Plantilla Básica JSF </title>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
 </h:head>
 <h:body>
 	<h2>
@@ -31,7 +33,7 @@
 				<f:facet name="header">Apellido</f:facet>
 				<h:outputText value="#{estudiante.APELLIDO_ESTUDIANTE}"></h:outputText>
 			</h:column>
-			
+
 			<h:column>
 				<f:facet name="header">Cedula</f:facet>
 				<h:outputText value="#{estudiante.CEDULA_ESTUDIANTE}"></h:outputText>
@@ -50,17 +52,22 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Editar</f:facet>
-				<h:commandButton action="#{estudianteBean.editar(estudiante.ID_ESTUDIANTE)}" value="Editar"></h:commandButton>
+				<h:commandButton
+					action="#{estudianteBean.editar(estudiante.ID_ESTUDIANTE)}"
+					value="Editar"></h:commandButton>
 			</h:column>
-			
-			
+
+
 			<h:column>
 				<f:facet name="header">Eliminar</f:facet>
-				<h:commandButton action="#{estudianteBean.eliminar(estudiante.ID_ESTUDIANTE)}" value="Eliminar"></h:commandButton>
+				<h:commandButton
+					action="#{estudianteBean.eliminar(estudiante.ID_ESTUDIANTE)}"
+					value="Eliminar"></h:commandButton>
 			</h:column>
 		</h:dataTable>
-				<h:commandButton action="#{estudianteBean.agregar()}" value="Agregar Estudiante"></h:commandButton>
+		<h:commandButton action="#{estudianteBean.agregar()}"
+			value="Agregar Estudiante"></h:commandButton>
 	</h:form>
-	
+
 </h:body>
 </html>

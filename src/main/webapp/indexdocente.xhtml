@@ -3,8 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:b="http://bootsfaces.net/ui" 
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
@@ -13,13 +12,14 @@
 	<link rel="stylesheet" type="text/css" href="main.css" />
 </h:head>
 <h:body>
-		<!-- BANNER -->
+	<!-- BANNER -->
 	<header>
-	<!-- MENU PRINCIPAL -->
-	<b:navBar class="menup" brandHref="#"
-			inverse="true"
+		<!-- MENU PRINCIPAL -->
+		<b:navBar class="menup" brandHref="#" inverse="true"
 			style="padding-top:2px;padding-bottom:2px;margin-bottom:0px;background:#226BCB;color:white;
-			border-color:#226BCB;" fixed="top"><img src="img/studaylogo2.png" width="120"/>
+			border-color:#226BCB;"
+			fixed="top">
+			<img src="img/studaylogo2.png" width="120" />
 			<b:navbarLinks pull="right">
 				<b:navLink value="    " href="#"></b:navLink>
 			</b:navbarLinks>
@@ -29,18 +29,20 @@
 				</b:dropMenu>
 			</b:navbarLinks>
 		</b:navBar>
-	<!--  -->
-		<b:jumbotron class="jumbotron" style="padding-top:60px;padding-bottom:20px; background-image: url('img/wallpaper5.jpg');">
+		<!--  -->
+		<b:jumbotron class="jumbotron"
+			style="padding-top:60px;padding-bottom:20px; background-image: url('img/wallpaper5.jpg');">
 			<div class="container">
 				<h1>Docente</h1>
 				<p>Administra tu vida académica de la mejor manera.</p>
 				<p>
-					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+					<a href="http://localhost:8081/jsf/PresentPage.html"
+						target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
 				</p>
 			</div>
 		</b:jumbotron>
 	</header>
-<!-- MENU -->
+	<!-- MENU -->
 	<p:tabMenu activeIndex="#{param.i}">
 		<p:menuitem value="Agenda" outcome="/index.xhtml" icon="pi pi-home">
 			<f:param name="i" value="0" />
@@ -63,64 +65,70 @@
 		<h2>
 			<h:outputText value="Lista de Docentes"></h:outputText>
 		</h2>
-		<h:form>
-			<b:dataTable value="#{docenteBean.arrayList}" var="docente"
-				border="1">
-				<b:dataTableColumn>
-					<f:facet name="header">ID</f:facet>
-					<h:outputText value="#{docente.ID_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Nombre</f:facet>
-					<h:outputText value="#{docente.NOMBRE_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Apellido</f:facet>
-					<h:outputText value="#{docente.APELLIDO_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Cedula</f:facet>
-					<h:outputText value="#{docente.CEDULA_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Correo</f:facet>
-					<h:outputText value="#{docente.CORREO_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Teléfono</f:facet>
-					<h:outputText value="#{docente.TELEFONO_DOCENTE}"></h:outputText>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Editar</f:facet>
-					<b:commandButton action="#{docenteBean.editar(docente.ID_DOCENTE)}"
-						value="Editar" ajax="true" update="@none"
-						look="warning" style="width:80px" iconAwesome="fa-pencil" ></b:commandButton>
-				</b:dataTableColumn>
-				<b:dataTableColumn>
-					<f:facet name="header">Eliminar</f:facet>
-					<b:commandButton
-						action="#{docenteBean.eliminar(docente.ID_DOCENTE)}"
-						value="Eliminar" ajax="true" update="@none" look="danger"
-						 iconAwesome="fa-trash">
-						<p:confirm header="Confirmación" message="¿Estás seguro?"
-							icon="pi pi-exclamation-triangle" />
-					</b:commandButton>
-					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-						<p:commandButton value="Si" type="button"
-							styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
-						<p:commandButton value="No" type="button"
-							styleClass="ui-confirmdialog-no" icon="pi pi-times" />
-					</p:confirmDialog>
-				</b:dataTableColumn>
-			</b:dataTable>
+		<b:panel look="primary">
+			<h:form>
+
+				<b:dataTable value="#{docenteBean.arrayList}" var="docente"
+					border="1">
+					<b:dataTableColumn>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{docente.ID_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Nombre</f:facet>
+						<h:outputText value="#{docente.NOMBRE_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Apellido</f:facet>
+						<h:outputText value="#{docente.APELLIDO_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Cedula</f:facet>
+						<h:outputText value="#{docente.CEDULA_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Correo</f:facet>
+						<h:outputText value="#{docente.CORREO_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Teléfono</f:facet>
+						<h:outputText value="#{docente.TELEFONO_DOCENTE}"></h:outputText>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Editar</f:facet>
+						<b:commandButton
+							action="#{docenteBean.editar(docente.ID_DOCENTE)}" value="Editar"
+							ajax="true" update="@none" look="warning" style="width:80px"
+							iconAwesome="fa-pencil"></b:commandButton>
+					</b:dataTableColumn>
+					<b:dataTableColumn>
+						<f:facet name="header">Eliminar</f:facet>
+						<b:commandButton
+							action="#{docenteBean.eliminar(docente.ID_DOCENTE)}"
+							value="Eliminar" ajax="true" update="@none" look="danger"
+							iconAwesome="fa-trash">
+							<p:confirm header="Confirmación" message="¿Estás seguro?"
+								icon="pi pi-exclamation-triangle" />
+						</b:commandButton>
+						<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+							<p:commandButton value="Si" type="button"
+								styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+							<p:commandButton value="No" type="button"
+								styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+						</p:confirmDialog>
+					</b:dataTableColumn>
+				</b:dataTable>
 			    <b:commandButton action="#{docenteBean.PaginaAdd()}"
-				value="Agregar" ajax="true" update="@none" look="primary"
-				 iconAwesome="fa-plus"/>
-		</h:form>
+					value="Agregar" ajax="true" update="@none" look="primary"
+					iconAwesome="fa-plus" />
+
+			</h:form>
+		</b:panel>
 	</div>
 	<footer class="sticky-bottom" style="background: #000;">
-		<p class="text-light text-center" style="color:white;padding-top:40px;padding-bottom:40px;">(c) 2019 StuDay Agenda. Todos
-			los derechos reservados.</p>
+		<p class="text-light text-center"
+			style="color: white; padding-top: 40px; padding-bottom: 40px;">(c)
+			2019 StuDay Agenda. Todos los derechos reservados.</p>
 	</footer>
 </h:body>
 </html>

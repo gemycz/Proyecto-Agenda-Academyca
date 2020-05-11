@@ -11,17 +11,18 @@ import javax.persistence.Query;
 
 import com.espe.idao.IClienteDao;
 
-public class ClienteDao implements IClienteDao{
+public class ClienteDao implements IClienteDao {
 
 	EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
+
 	@Override
 	public void guardar(Cliente cliente) {
 		// TODO Auto-generated method stub
-		
+
 		entity.getTransaction().begin();
 		entity.persist(cliente);
 		entity.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -37,18 +38,18 @@ public class ClienteDao implements IClienteDao{
 		// TODO Auto-generated method stub
 		Cliente c = new Cliente();
 		c = entity.find(Cliente.class, id);
-		
+
 		entity.getTransaction().begin();
 		entity.remove(c);
 		entity.getTransaction().commit();
 	}
-	
+
 	@Override
 	public Cliente buscar(int id) {
 		// TODO Auto-generated method stub
 		Cliente c = new Cliente();
 		c = entity.find(Cliente.class, id);
-		
+
 		return c;
 	}
 
@@ -58,10 +59,8 @@ public class ClienteDao implements IClienteDao{
 		List<Cliente> listaClientes = new ArrayList<Cliente>();
 		Query q = entity.createQuery("SELECT c FROM Cliente c");
 		listaClientes = q.getResultList();
-		
+
 		return listaClientes;
 	}
-
-	
 
 }

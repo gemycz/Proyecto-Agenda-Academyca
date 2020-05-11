@@ -14,10 +14,11 @@
 	<!-- BANNER -->
 	<header>
 		<!-- MENU PRINCIPAL -->
-		<b:navBar class="menup" brandHref="#"
-			inverse="true"
+		<b:navBar class="menup" brandHref="#" inverse="true"
 			style="padding-top:2px;padding-bottom:2px;margin-bottom:0px;background:#226BCB;color:white;
-			border-color:#226BCB;" fixed="top"><img src="img/studaylogo2.png" width="120"/>
+			border-color:#226BCB;"
+			fixed="top">
+			<img src="img/studaylogo2.png" width="120" />
 			<b:navbarLinks pull="right">
 				<b:navLink value="    " href="#"></b:navLink>
 			</b:navbarLinks>
@@ -34,7 +35,8 @@
 				<h1>Asignatura</h1>
 				<p>Administra tu vida académica de la mejor manera.</p>
 				<p>
-					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+					<a href="http://localhost:8081/jsf/PresentPage.html"
+						target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
 				</p>
 			</div>
 		</b:jumbotron>
@@ -64,13 +66,13 @@
 		</f:facet>
 		<b:form>
 			<b:container layout="fluid">
-				<b:panelGrid colSpans="6,6">
+				<b:panelGrid colSpans="12">
 					<b:panel title="AGREGAR ASIGNATURA" look="primary">
 						<b:row>
 							<b:column medium-screen="4">
 								<p:outputLabel value="Nombre" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 								<b:inputText id="nombre" value="#{asignatura.NOMBRE_ASIGNATURA}"
 									required="true"></b:inputText>
 							</b:column>
@@ -79,7 +81,7 @@
 							<b:column medium-screen="4">
 								<p:outputLabel value="Dia" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 								<b:selectOneMenu value="#{asignatura.DIAS_ASIGNATURA}">
 									<f:selectItem itemLabel="Seleccionar Dia" />
 									<f:selectItems value="#{asignaturaBean.listaDias}" />
@@ -98,7 +100,7 @@
 							<b:column medium-screen="4">
 								<p:outputLabel value="Hora de entrada" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 
 								<p:calendar id="time" pattern="HH:mm a" timeOnly="true"
 									value="#{asignatura.HORAENTRADA_ASIGNATURA}" />
@@ -110,7 +112,7 @@
 							<b:column medium-screen="4">
 								<p:outputLabel value="Hora de salida" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 								<p:calendar id="time1" pattern="HH:mm a" timeOnly="true"
 									value="#{asignatura.HORASALIDA_ASIGNATURA}" style="width:200px" />
 								<f:convertDateTime pattern="HH:mm a" />
@@ -121,7 +123,7 @@
 							<b:column medium-screen="4">
 								<p:outputLabel value="Docente" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 								<b:selectOneMenu value="#{asignatura.ID_DOCENTE}">
 
 									<f:selectItem itemLabel="Seleccionar Docente" itemValue=""
@@ -134,7 +136,7 @@
 							<b:column medium-screen="4">
 								<p:outputLabel value="Aula" />
 							</b:column>
-							<b:column medium-screen="8">
+							<b:column medium-screen="6">
 								<b:inputText id="aula" value="#{asignatura.AULA_ASIGNATURA}"></b:inputText>
 							</b:column>
 						</b:row>
@@ -147,9 +149,10 @@
 		</b:form>
 	</b:panel>
 	<footer class="sticky-bottom" style="background: #000;">
-		<p class="text-light text-center" style="color:white;padding-top:40px;padding-bottom:40px;">(c) 2019 StuDay Agenda. Todos
-			los derechos reservados.</p>
+		<p class="text-light text-center"
+			style="color: white; padding-top: 40px; padding-bottom: 40px;">(c)
+			2019 StuDay Agenda. Todos los derechos reservados.</p>
 	</footer>
-	
+
 </h:body>
 </html>

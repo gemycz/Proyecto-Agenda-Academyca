@@ -3,7 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
@@ -39,7 +40,8 @@
 				<h1>Agenda</h1>
 				<p>Administra tu vida académica de la mejor manera.</p>
 				<p>
-					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+					<a href="http://localhost:8081/jsf/PresentPage.html"
+						target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
 				</p>
 			</div>
 		</b:jumbotron>
@@ -63,85 +65,142 @@
 		</p:menuitem>
 	</p:tabMenu>
 	<!-- AGENDA -->
-	<!-- LUNES -->
-	<b:panel collapsed="#{panelBean.firstPanelCollapsed}">
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}" var="tareas">
 		<f:facet name="heading">
 			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="LUNES" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
+			<h:outputText value="Tareas terminadas" />
+			<b:badge style="margin-left:10px; background-color:#28CC18"
+				value="Realizado" />
 		</f:facet>
-		<h:outputText value="Panel Content" />
-		<!--  -->
-		
+		<ui:repeat value="#{tareasBean.tareasFecha4}" var="tareas"
+			varStatus="pendiente">
+			<b:panel>
+			<b:row>
+				<b:column medium-screen="4">
+					<h:outputText value="#{tareas.FECHA_ENTREGA}" style="color:#28CC18;"/>
+					<br />
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+					<br />
+					<h:outputText value="#{tareas.ESTADO_TAREA}"  style="color:#006DE7;"></h:outputText>
+					<br />
+				</b:column>
+			</b:row>
+			</b:panel>
+		</ui:repeat>
+		</b:panel>
+	<!-- LUNES -->
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}" var="tareas">
+		<f:facet name="heading">
+			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
+			<h:outputText value="Proximos 7 días" />
+			<b:badge style="margin-left:10px; background-color:#E01916"
+				value="pendiente" />
+		</f:facet>
+		<!--
+		<b:dataTable value="#{tareasBean.tareasFecha}" columns="2">
+		<b:dataTableColumn>
+					<f:facet name="header">Fecha</f:facet>
+					<h:outputText value="#{tareas.FECHA_ENTREGA}"></h:outputText>
+				</b:dataTableColumn>
+				<b:dataTableColumn>
+					<f:facet name="header"></f:facet>
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+				</b:dataTableColumn>		
+		</b:dataTable>
+		  -->
+		<ui:repeat value="#{tareasBean.tareasFecha}" var="tareas"
+			varStatus="status">
+			<b:panel>
+			<b:row>
+				<b:column medium-screen="4">
+					<h:outputText value="#{tareas.FECHA_ENTREGA}" style="color:#FF3333;"/>
+					<br />
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+					<br />
+					<h:outputText value="#{tareas.ESTADO_TAREA}" style="color:#006DE7;"></h:outputText>
+					<br />
+				</b:column>
+			</b:row>
+			</b:panel>
+		</ui:repeat>
 		<!--  -->
 	</b:panel>
 	<!-- MARTES -->
-
-	<b:panel>
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}" var="tareas">
 		<f:facet name="heading">
 			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="MARTES" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
+			<h:outputText value="Proximos 15 días" />
+			<b:badge style="margin-left:10px; background-color:#E01916"
+				value="pendiente" />
 		</f:facet>
-		<h:outputText value="Panel Content" />
-	</b:panel>
+		<ui:repeat value="#{tareasBean.tareasFecha1}" var="tareas"
+			varStatus="pendiente">
+			<b:panel>
+			<b:row>
+				<b:column medium-screen="4">
+					<h:outputText value="#{tareas.FECHA_ENTREGA}" style="color:#FF3333;"/>
+					<br />
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+					<br />
+					<h:outputText value="#{tareas.ESTADO_TAREA}"  style="color:#006DE7;"></h:outputText>
+					<br />
+				</b:column>
+			</b:row>
+			</b:panel>
+		</ui:repeat>
+		</b:panel>
 	<!-- MIERCOLES -->
-
-	<b:panel>
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}" var="tareas">
 		<f:facet name="heading">
 			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="MIERCOLES" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
+			<h:outputText value="Proximos 21 días" />
+			<b:badge style="margin-left:10px; background-color:#E01916"
+				value="pendiente" />
 		</f:facet>
-		<h:outputText value="Panel Content" />
+		<b:panel>
+		<ui:repeat value="#{tareasBean.tareasFecha2}" var="tareas"
+			varStatus="status">
+			<b:panel>
+			<b:row>
+				<b:column medium-screen="4">
+					<h:outputText value="#{tareas.FECHA_ENTREGA}" style="color:#FF3333;" />
+					<br />
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+					<br />
+					<h:outputText value="#{tareas.ESTADO_TAREA}"  style="color:#006DE7;"></h:outputText>
+					<br />
+				</b:column>
+			</b:row>
+			</b:panel>
+		</ui:repeat>
+		</b:panel>
 	</b:panel>
 	<!-- JUEVES -->
 
-	<b:panel>
+	<b:panel collapsed="#{panelBean.firstPanelCollapsed}" var="tareas">
 		<f:facet name="heading">
 			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="JUEVES" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
+			<h:outputText value="Próximo Mes" />
+			<b:badge style="margin-left:10px; background-color:#E01916"
+				value="pendiente" />
 		</f:facet>
-		<h:outputText value="Panel Content" />
-	</b:panel>
-	<!-- VIERNES -->
+		<ui:repeat value="#{tareasBean.tareasFecha3}" var="tareas"
+			varStatus="status">
+			<b:panel>
+			<b:row>
+				<b:column medium-screen="4">
+					<h:outputText value="#{tareas.FECHA_ENTREGA}" style="color:#FF3333;"/>
+					<br />
+					<h:outputText value="#{tareas.DESCRIPCION_TAREA}"></h:outputText>
+					<br />
+					<h:outputText value="#{tareas.ESTADO_TAREA}"  style="color:#006DE7;"></h:outputText>
+					<br />
+				</b:column>
+			</b:row>
+			</b:panel>
+		</ui:repeat>
+		</b:panel>
 
-	<b:panel>
-		<f:facet name="heading">
-			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="VIERNES" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
-		</f:facet>
-		<h:outputText value="Panel Content" />
-	</b:panel>
-	<!-- SABADO -->
-
-	<b:panel>
-		<f:facet name="heading">
-			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="SABADO" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
-		</f:facet>
-		<h:outputText value="Panel Content" />
-	</b:panel>
-	<!-- DOMINGO -->
-
-	<b:panel>
-		<f:facet name="heading">
-			<i class="fa fa-battery-three-quarters" style="padding-right: 20px" />
-			<h:outputText value="DOMINGO" />
-			<b:badge style="margin-left:10px; background-color:#5cb85c"
-				value="good" />
-		</f:facet>
-		<h:outputText value="Panel Content" />
-	</b:panel>
 	<!--  -->
 	<footer class="sticky-bottom" style="background: #000;">
 		<p class="text-light text-center"

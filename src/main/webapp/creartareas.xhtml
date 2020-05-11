@@ -35,7 +35,8 @@
 				<h1>Tareas</h1>
 				<p>Administra tu vida académica de la mejor manera.</p>
 				<p>
-					<a href="http://localhost:8081/jsf/PresentPage.html" target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
+					<a href="http://localhost:8081/jsf/PresentPage.html"
+						target="_blank" class="btn btn-primary btn-lg">Saber Más</a>
 				</p>
 			</div>
 		</b:jumbotron>
@@ -60,22 +61,22 @@
 	</p:tabMenu>
 	<!-- FORM -->
 
-		<b:panel>
-			<f:facet name="heading">
+	<b:panel>
+		<f:facet name="heading">
 
 
-			</f:facet>
+		</f:facet>
 
-			<b:form>
-				<b:container layout="fluid">
-					<div class="container">
-					<b:panelGrid colSpans="6,6">
+		<b:form>
+			<b:container layout="fluid">
+				<div class="container">
+					<b:panelGrid colSpans="12">
 						<b:panel title="AGREGAR TAREAS" look="primary">
 							<b:row>
 								<b:column medium-screen="4">
 									<p:outputLabel value="Asignatura" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:formGroup>
 										<b:selectOneMenu value="#{tareas.NRC_ASIGNATURA}">
 											<f:selectItem itemLabel="Seleccionar Asignatura" itemValue=""
@@ -90,7 +91,7 @@
 								<b:column medium-screen="4">
 									<p:outputLabel value="Descripción" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:inputText value="#{tareas.DESCRIPCION_TAREA}"
 										required="true"></b:inputText>
 								</b:column>
@@ -100,7 +101,7 @@
 								<b:column medium-screen="4">
 									<p:outputLabel value="Fecha de Entrega" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:datepicker value="#{tareas.FECHA_ENTREGA}"
 										tooltip="Clic en el icono para insertar la fecha!!"
 										severity="info" visible="md..." />
@@ -110,7 +111,7 @@
 								<b:column medium-screen="4">
 									<p:outputLabel value="Prioridad" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:panelGrid columns="3" style="margin-bottom:10px"
 										cellpadding="5">
 
@@ -128,7 +129,7 @@
 								<b:column medium-screen="4">
 									<p:outputLabel value="Estado" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:formGroup>
 										<b:selectOneMenu value="#{tareas.ESTADO_TAREA}">
 											<f:selectItem itemLabel="Seleccionar Estado" itemValue=""
@@ -143,7 +144,7 @@
 								<b:column medium-screen="4">
 									<p:outputLabel value="Calificación" />
 								</b:column>
-								<b:column medium-screen="8">
+								<b:column medium-screen="6">
 									<b:inputText value="#{tareas.CALIFICACIONES_TAREA}"
 										mask="decimal" render-label="true"></b:inputText>
 								</b:column>
@@ -155,10 +156,12 @@
 							</b:commandButton>
 						</b:panel>
 					</b:panelGrid>
-					</div>
-				</b:container>
-			</b:form>
-		</b:panel>
+				</div>
+			</b:container>
+		</b:form>
+
+	</b:panel>
+
 	<!--  -->
 	<footer class="sticky-bottom" style="background: #000;">
 		<p class="text-light text-center"

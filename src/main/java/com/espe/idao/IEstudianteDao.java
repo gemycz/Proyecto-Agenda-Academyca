@@ -6,14 +6,14 @@ import com.espe.model.Estudiante;
 
 public interface IEstudianteDao {
 
-	
-	
-	
 	public Estudiante buscar(int id);
-	public List<Estudiante>obtenerEstudiantes();
+
+	public List<Estudiante> obtenerEstudiantes();
+
 	void guardar(Estudiante estudiante);
-    void editar(Estudiante estudiante);
-    void eliminar(int id);
-    
-	
+
+	void editar(Estudiante estudiante);
+
+	void eliminar(int id);
+
 }

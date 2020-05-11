@@ -14,14 +14,14 @@
 		<h:panelGrid columns="2" cellspacing="20" border="1">
 			<f:facet name="header"></f:facet>
 			<h:outputText value="Editar"></h:outputText>
-			
-		
+
+
 			<h:outputText value="Nombre"></h:outputText>
 			<h:inputText value="#{estudiante.NOMBRE_ESTUDIANTE}"></h:inputText>
-			
+
 			<h:outputText value="Apellido"></h:outputText>
 			<h:inputText value="#{estudiante.APELLIDO_ESTUDIANTE}"></h:inputText>
-			
+
 			<h:outputText value="Cedula"></h:outputText>
 			<h:inputText value="#{estudiante.CEDULA_ESTUDIANTE}"></h:inputText>
 			<h:outputText value="Nivel"></h:outputText>
@@ -30,10 +30,11 @@
 			<h:inputText value="#{estudiante.USUARIO_ESTUDIANTE}"></h:inputText>
 			<h:outputText value="Contraseña"></h:outputText>
 			<h:inputText value="#{estudiante.CONTRASENA_ESTUDIANTE}"></h:inputText>
-						
-			
+
+
 			<f:facet name="footer">
-				<h:commandButton action="#{estudianteBean.actualizar(estudiante)}" value="Actualizar"></h:commandButton>
+				<h:commandButton action="#{estudianteBean.actualizar(estudiante)}"
+					value="Actualizar"></h:commandButton>
 			</f:facet>
 
 		</h:panelGrid>

@@ -11,16 +11,17 @@ import com.espe.model.Docente;
 import com.espe.model.JPAUtil;
 
 public class DocenteDao implements IDocenteDao {
-	
+
 	EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
+
 	@Override
 	public void guardar(Docente docente) {
 		// TODO Auto-generated method stub
-		
+
 		entity.getTransaction().begin();
 		entity.persist(docente);
 		entity.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -36,18 +37,18 @@ public class DocenteDao implements IDocenteDao {
 		// TODO Auto-generated method stub
 		Docente d = new Docente();
 		d = entity.find(Docente.class, id);
-		
+
 		entity.getTransaction().begin();
 		entity.remove(d);
 		entity.getTransaction().commit();
 	}
-	
+
 	@Override
 	public Docente buscar(int id) {
 		// TODO Auto-generated method stub
 		Docente d = new Docente();
 		d = entity.find(Docente.class, id);
-		
+
 		return d;
 	}
 
@@ -57,7 +58,7 @@ public class DocenteDao implements IDocenteDao {
 		List<Docente> listaDocente = new ArrayList<Docente>();
 		Query q = entity.createQuery("SELECT d FROM Docente d");
 		listaDocente = q.getResultList();
-		
+
 		return listaDocente;
 	}
 
